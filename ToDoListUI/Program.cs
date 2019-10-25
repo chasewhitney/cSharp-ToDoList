@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using ToDoListLibrary;
 
 namespace ToDoListUI
 {
@@ -16,7 +17,10 @@ namespace ToDoListUI
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+
+
+            GlobalConfig.InitializeConnections(DatabaseType.Sql);
+            Application.Run(new ToDoListViewerForm());
         }
     }
 }
