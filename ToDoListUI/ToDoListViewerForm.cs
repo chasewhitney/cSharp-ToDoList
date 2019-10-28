@@ -47,5 +47,21 @@ namespace ToDoListUI
             addTaskBox.Text = "";
             WireUpLists();
         }
+
+        private void completeTaskButton_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void deleteTaskButton_Click(object sender, EventArgs e)
+        {
+            TaskModel t = (TaskModel)taskListBox.SelectedItem;
+
+            GlobalConfig.Connection.DeleteTask(t);
+
+            allTasks.Remove(t);
+
+            WireUpLists();
+        }
     }
 }

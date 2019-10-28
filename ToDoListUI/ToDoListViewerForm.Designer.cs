@@ -71,6 +71,7 @@
             this.completeTaskButton.TabIndex = 3;
             this.completeTaskButton.Text = "Complete";
             this.completeTaskButton.UseVisualStyleBackColor = true;
+            this.completeTaskButton.Click += new System.EventHandler(this.completeTaskButton_Click);
             // 
             // editTaskButton
             // 
@@ -89,6 +90,7 @@
             this.deleteTaskButton.TabIndex = 5;
             this.deleteTaskButton.Text = "Delete";
             this.deleteTaskButton.UseVisualStyleBackColor = true;
+            this.deleteTaskButton.Click += new System.EventHandler(this.deleteTaskButton_Click);
             // 
             // addTaskButton
             // 

@@ -14,6 +14,11 @@ namespace ToDoListLibrary.DataAccess
             throw new NotImplementedException();
         }
 
+        public void DeleteTask(TaskModel model)
+        {
+            throw new NotImplementedException();
+        }
+
         public List<TaskModel> GetTask_All()
         {
             throw new NotImplementedException();
