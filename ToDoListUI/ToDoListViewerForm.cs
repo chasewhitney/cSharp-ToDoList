@@ -12,7 +12,7 @@ using ToDoListLibrary.Models;
 
 namespace ToDoListUI
 {
-    public partial class ToDoListViewerForm : Form
+    public partial class ToDoListViewerForm : Form, IEditRequester
     {
         List<TaskModel> allTasks = GlobalConfig.Connection.GetTask_All();
 
@@ -25,32 +25,48 @@ namespace ToDoListUI
 
         private void WireUpLists()
         {
+            
             taskListBox.DataSource = null;
 
             taskListBox.DataSource = allTasks;
             taskListBox.DisplayMember = "Name";
+
         }
 
 
         private void addTaskButton_Click(object sender, EventArgs e)
         {
-            // TODO - Validate new task input
+            if (ValidateForm())
+            {
+                TaskModel t = new TaskModel();
 
-            TaskModel t = new TaskModel();
+                t.Name = addTaskBox.Text;
 
-            t.Name = addTaskBox.Text;
+                GlobalConfig.Connection.CreateTask(t);
 
-            GlobalConfig.Connection.CreateTask(t);
+                allTasks.Add(t);
 
-            allTasks.Add(t);
+                addTaskBox.Text = "";
+                WireUpLists();
+            } else
+            {
+                MessageBox.Show("Invalid entry. Please enter text.");
+            }
 
-            addTaskBox.Text = "";
-            WireUpLists();
+
         }
 
         private void completeTaskButton_Click(object sender, EventArgs e)
         {
+            TaskModel t = (TaskModel)taskListBox.SelectedItem;
 
+            t.Completed = true;
+
+            GlobalConfig.Connection.UpdateTask(t);
+
+            allTasks.Remove(t);
+
+            WireUpLists();
         }
 
         private void deleteTaskButton_Click(object sender, EventArgs e)
@@ -62,6 +78,37 @@ namespace ToDoListUI
             allTasks.Remove(t);
 
             WireUpLists();
+        }
+
+        private void editTaskButton_Click(object sender, EventArgs e)
+        {
+            TaskModel t = (TaskModel)taskListBox.SelectedItem;
+
+            TaskEditForm frm = new TaskEditForm(this, t);
+            frm.Show();
+        }
+
+        public void EditComplete(TaskModel model)
+        {
+            GlobalConfig.Connection.UpdateTask(model);
+
+            allTasks.Remove(allTasks.Where(x => x.Id == model.Id).First());            
+
+            allTasks.Add(model);
+
+            WireUpLists();
+        }
+
+        private bool ValidateForm()
+        {
+            bool output = true;
+
+            if(addTaskBox.Text == null || addTaskBox.Text == "")
+            {
+                output = false;
+            }
+
+            return output;
         }
     }
 }

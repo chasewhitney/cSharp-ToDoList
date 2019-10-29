@@ -23,5 +23,11 @@ namespace ToDoListLibrary.DataAccess
         {
             throw new NotImplementedException();
         }
+
+        public void UpdateTask(TaskModel model)
+        {
+            throw new NotImplementedException();
+        }
+
     }
 }

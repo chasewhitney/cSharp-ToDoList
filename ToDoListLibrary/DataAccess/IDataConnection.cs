@@ -12,5 +12,6 @@ namespace ToDoListLibrary.DataAccess
         void CreateTask(TaskModel model);
         List<TaskModel> GetTask_All();
         void DeleteTask(TaskModel model);
+        void UpdateTask(TaskModel model);
     }
 }

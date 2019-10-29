@@ -40,10 +40,10 @@
             // taskListLabel
             // 
             this.taskListLabel.AutoSize = true;
-            this.taskListLabel.Font = new System.Drawing.Font("Segoe UI Light", 25.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.taskListLabel.Location = new System.Drawing.Point(298, 71);
+            this.taskListLabel.Font = new System.Drawing.Font("Segoe UI", 48F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.taskListLabel.Location = new System.Drawing.Point(274, 27);
             this.taskListLabel.Name = "taskListLabel";
-            this.taskListLabel.Size = new System.Drawing.Size(136, 59);
+            this.taskListLabel.Size = new System.Drawing.Size(260, 106);
             this.taskListLabel.TabIndex = 0;
             this.taskListLabel.Text = "ToDo!";
             // 
@@ -81,6 +81,7 @@
             this.editTaskButton.TabIndex = 4;
             this.editTaskButton.Text = "Edit";
             this.editTaskButton.UseVisualStyleBackColor = true;
+            this.editTaskButton.Click += new System.EventHandler(this.editTaskButton_Click);
             // 
             // deleteTaskButton
             // 

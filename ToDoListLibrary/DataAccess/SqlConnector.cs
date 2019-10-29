@@ -48,5 +48,17 @@ namespace ToDoListLibrary.DataAccess
                 connection.Execute("dbo.Tasks_Delete", p, commandType: CommandType.StoredProcedure);
             }
         }
+
+        public void UpdateTask(TaskModel model)
+        {
+            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(GlobalConfig.CnnString(db)))
+            {
+                var p = new DynamicParameters();
+                p.Add("@id", model.Id);
+                p.Add("@Name", model.Name);
+                p.Add("@Completed", model.Completed);
+                connection.Execute("dbo.spTasks_Update", p, commandType: CommandType.StoredProcedure);
+            }
+        }
     }
 }
