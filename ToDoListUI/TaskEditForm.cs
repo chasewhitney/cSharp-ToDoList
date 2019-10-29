@@ -26,11 +26,6 @@ namespace ToDoListUI
             editTextBox.Text = modelToEdit.Name;
         }
 
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void saveButton_Click(object sender, EventArgs e)
         {
             if (ValidateForm())

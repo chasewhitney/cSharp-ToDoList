@@ -52,7 +52,6 @@
             this.editTextBox.Name = "editTextBox";
             this.editTextBox.Size = new System.Drawing.Size(659, 43);
             this.editTextBox.TabIndex = 0;
-            this.editTextBox.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // cancelButton
             // 
