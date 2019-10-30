@@ -31,6 +31,7 @@ namespace ToDoListLibrary.DataAccess
         {
             List<TaskModel> output;
 
+            // Stored procedure omitting completed tasks
             using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(GlobalConfig.CnnString(db)))
             {
                 output = connection.Query<TaskModel>("dbo.spTasks_GetAll").ToList();

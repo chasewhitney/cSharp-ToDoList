@@ -96,6 +96,8 @@ namespace ToDoListUI
 
             allTasks.Add(model);
 
+            allTasks = allTasks.OrderBy(x => x.Id).ToList();
+
             WireUpLists();
         }
 
