@@ -10,6 +10,7 @@ namespace ToDoListLibrary
 {
     public static class GlobalConfig
     {
+        public const string TasksFile = "TasksModels.csv";
 
         public static IDataConnection Connection { get; private set; }
 

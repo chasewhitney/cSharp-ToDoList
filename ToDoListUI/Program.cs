@@ -19,7 +19,7 @@ namespace ToDoListUI
             Application.SetCompatibleTextRenderingDefault(false);
 
 
-            GlobalConfig.InitializeConnections(DatabaseType.Sql);
+            GlobalConfig.InitializeConnections(DatabaseType.Text);
             Application.Run(new ToDoListViewerForm());
         }
     }
