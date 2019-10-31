@@ -18,8 +18,9 @@ namespace ToDoListUI
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
-
+            // Initialize the database connections
             GlobalConfig.InitializeConnections(DatabaseType.Text);
+
             Application.Run(new ToDoListViewerForm());
         }
     }

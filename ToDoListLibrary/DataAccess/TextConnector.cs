@@ -10,10 +10,6 @@ namespace ToDoListLibrary.DataAccess
 {
     class TextConnector : IDataConnection
     {
-        // Completed, Name, Id
-        // TasksFile.csv
-        // C:\data\TournamentTracker
-
         public void CreateTask(TaskModel model)
         {
             List<TaskModel> tasks = GlobalConfig.TasksFile.FullFilePath().LoadFile().ConvertToTaskModels();

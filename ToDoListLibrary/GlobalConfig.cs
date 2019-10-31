@@ -12,8 +12,15 @@ namespace ToDoListLibrary
     {
         public const string TasksFile = "TasksModels.csv";
 
+        /// <summary>
+        /// Connection will be Class SqlConnector or TextConnector depending upon
+        /// GlobalConfig.InitializeConnections(DatabaseType.TYPE) in Program.cs
+        /// </summary>
         public static IDataConnection Connection { get; private set; }
 
+        /// <summary>
+        /// Sets Connection to be Class SqlConnector or TextConnector
+        /// </summary>
         public static void InitializeConnections(DatabaseType db)
         {
             if (db == DatabaseType.Sql)
@@ -26,6 +33,9 @@ namespace ToDoListLibrary
             }
         }
 
+        /// <summary>
+        /// String used to connect to SQL database
+        /// </summary>
         public static string CnnString(string name)
         {
             return ConfigurationManager.ConnectionStrings[name].ConnectionString;
